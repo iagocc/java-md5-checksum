@@ -23,14 +23,14 @@ public class MD5 {
 			file2 = openFile(filePath2);
 		} catch(FileNotFoundException e) {
 			System.out.println(e.getMessage());
-			System.exit(0);
+			System.exit(-1);
 		}
 		
 		try {
 			md = MessageDigest.getInstance("MD5");
 		} catch (NoSuchAlgorithmException e) {
 			System.out.println(e.getMessage());
-			System.exit(0);
+			System.exit(-1);
 		}
 		
 		String hash1 = generateHashForFile(file1, md);
@@ -55,7 +55,7 @@ public class MD5 {
 			while (fileDigest.read() != -1);
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
-			System.exit(0);
+			System.exit(-1);
 		}
 		
 		byte[] digested1 = md.digest();
